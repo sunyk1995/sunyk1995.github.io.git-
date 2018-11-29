@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{list-style:none;padding: 0;margin: 0;}
+    .div1{width: 100px;height: 100px;position: absolute;left: 0;top:0;background: black;}
+    .div2{width: 100px;height: 100px;position: absolute;left: 400px;top:400px;background: green;}
+    .topG{
+        width: 50px;position: absolute;left:90%;top:0;background: black;
+    }
+    .bottomG{
+        width: 50px;
+        background: black;
+        position: absolute;
+        left:90%;
+    }
+    </style>
+ <script>
+  window.onload = function(){
+      let div = document.querySelector('.div1');
+      div.onmousedown =function(e){
+          var e = e||event;
+          let x  = e.clientX - this.offsetLeft;
+          let y =e.clientY - this.offsetTop;
+          document.onmousemove  = function(e){
+              this.style.left = e.clientX - x +'px';
+              this.style.top  = e.clientY - y +'px';
+          }.bind(div)
+          document.onmouseup = function(){
+              this.onmousemove  =this.onmouseup = null;
+          }
+          return false;
+      }
+  }
+ </script>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+</body>
+</html>

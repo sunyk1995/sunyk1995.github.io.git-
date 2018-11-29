@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .div1{width: 100px;height: 100px;background: black;
+    position: absolute;left: 100px;
+    top:0;
+    }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+</body>
+<script>
+let div  = document.querySelector('.div1');
+let speed = 0;
+let timer = null;
+clearInterval(timer);
+    timer =setInterval(()=>{
+    speed += 1.5;
+    div.style.top = speed + div.offsetTop + 'px';
+},30)
+document.onkeydown =function(){
+    speed -=33;
+}
+</script>
+</html>
